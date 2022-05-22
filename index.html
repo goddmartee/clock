@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="app.css">
+    <title>Clock</title>
+</head>
+    <body>
+    <div class="app">
+        <div class="app__settings">
+            <button><ion-icon name="ellipsis-vertical"></ion-icon></button>
+        </div>
+
+        <div class="app__container">
+            
+            <!-- Clock -->
+            <input type="text" class="time" id="time" disabled>
+
+            <!-- Stopwatch -->
+            <div  id="containerSW" class="container__sw box">
+                <div class="container__SW">
+                    <input type="text" id="stopwatch" class="sw__input" value="00:00.000" disabled>
+                    <div id="outputLaps" class="output-laps"></div>
+                </div>
+                <div class="sw__btns">
+                    <button id="btnLapSW" class="btn btn--default" disabled>Lap</button>
+                    <button id="btnResetSW" class="btn btn--default d-none">Reset</button>
+                    <button id="btnStartSW" class="btn btn--blue">Start</button>
+                    <button id="btnStopSW" class="d-none btn btn--red">Stop</ion-icon></button>
+                </div>
+            </div>
+
+            <!-- Timer -->
+            <div id="containerTimer" class="container__timer box">
+                <div class="timer__inputs">
+                    <input type="text" id="inputHTimer" class="inputs__timer" size="1" value="00">
+                    <input type="text" id="inputMTimer" class="inputs__timer" size="1" value="00">
+                    <input type="text" id="inputSTimer" class="inputs__timer" size="1" value="00">
+                </div>
+                
+                <div id="outputTimer" class="output-timer"></div>
+                
+                <div class="timer__btn">
+                    <button id="btnStartTimer" class="btn btn--blue">Start</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="app__menu">
+            <button id="btnMenuClock" class="btn btn--default btn--menu">Clock</button>
+            <button id="btnMenuSW" class="btn btn--menu">Stopwatch</button>
+            <button id="btnMenuTimer" class="btn btn--menu">Timer</button>
+        </div>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script type="text/javascript" lang="javascript" src="app.js"></script>
+</body>
+</html>
