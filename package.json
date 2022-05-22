@@ -1,0 +1,20 @@
+{
+  "name": "clock",
+  "version": "1.0.0",
+  "description": "It is a web applications to does display the time, a timer and a stopwatch",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goddmartee/clock"
+  },
+  "keywords": [],
+  "author": "goddmartee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/goddmartee/clock/issues"
+  },
+  "homepage": "https://github.com/goddmartee/clock#readme"
+}
