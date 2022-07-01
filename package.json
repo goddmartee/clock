@@ -2,7 +2,7 @@
   "name": "clock",
   "version": "1.0.0",
   "description": "It is a web applications does display the time, a timer and a stopwatch",
-  "main": "app.js",
+  "main": "./assets/scripts/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/goddmartee/clock.git"
   },
-  "keywords": [],
+  "keywords": ["webapp", "clock", "timer", "time", "stopwatch"],
   "author": "goddmartee",
   "license": "MIT",
   "bugs": {

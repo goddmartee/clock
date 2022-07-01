@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+* {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	outline: none;
+	vertical-align: baseline;
+
+	-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+}
+
+img, picture, video, iframe, figure {
+	display: block;
+	max-width: 100%;
+	width: 100%;
+
+	-o-object-fit: cover;
+	   object-fit: cover;
+
+	-o-object-position: center center;
+	   object-position: center center;
+}
+
+a {
+	display: block;
+	text-decoration: none;
+	color: inherit;
+	font-size: inherit;
+}
+
+p a { display: inline; }
+
+li { list-style-type: none; }
+
+html { scroll-behavior: smooth; }
+
+h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
+	font-size: 1em;
+	font-weight: inherit;
+	font-style: inherit;
+	text-decoration: none;
+	color: inherit;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none;
+}
+
+::-moz-selection { background-color: transparent; }
+
+::selection { background-color: transparent; }
+
+form, input, textarea, select, button, label {
+	display: block;
+	font-family: inherit;
+	font-size: inherit;
+	background-color: transparent;
+	color: inherit;
+
+	-webkit-hyphens: auto;
+	  -ms-hyphens: auto;
+	      hyphens: auto;
+  
+	-webkit-appearance: none;
+	   -moz-appearance: none;
+			appearance: none;
+}
+
+table, tr, td {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+svg {
+  width: 100%;
+  display: block;
+  fill: currentColor;
+}
+
+p svg{
+  display: inline;
+  width: initial;
+} 
+
+body {
+	min-height: 100vh;
+	font-size: 100%;
+	line-height: 1.4em;
+
+	-webkit-hyphens: auto;
+		-ms-hyphens: auto;
+			hyphens: auto;
+
+	-moz-osx-font-smoothing: grayscale;
+	 -webkit-font-smoothing: antialiased;
+	 			font-smooth: always;
+}

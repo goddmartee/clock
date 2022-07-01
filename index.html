@@ -1,64 +1,87 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="app.css">
-    <title>Clock</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="src/css/app.min.css">
+	<title>Clock</title>
 </head>
-    <body>
-    <div class="app">
-        <div class="app__settings">
-            <button><ion-icon name="ellipsis-vertical"></ion-icon></button>
-        </div>
+<body>
+	<main id="app" class="app">
+		<div>
+			<button id="modeBtnDark" class="btn btn-mode bg-dark">D</button>
+			<button id="modeBtnLight" class="btn btn-mode bg-light d-none">L</button>
+		</div>
 
-        <div class="app__container">
-            
-            <!-- Clock -->
-            <input type="text" class="time" id="time" disabled>
+		<div class="place-items">
 
-            <!-- Stopwatch -->
-            <div  id="containerSW" class="container__sw box">
-                <div class="container__SW">
-                    <input type="text" id="stopwatch" class="sw__input" value="00:00.000" disabled>
-                    <div id="outputLaps" class="output-laps"></div>
-                </div>
-                <div class="sw__btns">
-                    <button id="btnLapSW" class="btn btn--default" disabled>Lap</button>
-                    <button id="btnResetSW" class="btn btn--default d-none">Reset</button>
-                    <button id="btnStartSW" class="btn btn--blue">Start</button>
-                    <button id="btnStopSW" class="d-none btn btn--red">Stop</ion-icon></button>
-                </div>
-            </div>
+			<!-- Clock -->
+			<div id="clock" class="place-items">
+				<input type="text" id="clockInput" class="app--input" disabled>
+				<div class="chrono-buttons">
+					<button id="clockBtnHour12" class="btn btn-purple">12 hrs</button>
+					<button id="clockBtnHour24" class="btn btn-purple d-none">24 hrs</button>
+				</div>
+			</div>
 
-            <!-- Timer -->
-            <div id="containerTimer" class="container__timer box">
-                <div class="timer__inputs">
-                    <input type="text" id="inputHTimer" class="inputs__timer" size="1" value="00">
-                    <input type="text" id="inputMTimer" class="inputs__timer" size="1" value="00">
-                    <input type="text" id="inputSTimer" class="inputs__timer" size="1" value="00">
-                </div>
-                
-                <div id="outputTimer" class="output-timer"></div>
-                
-                <div class="timer__btn">
-                    <button id="btnStartTimer" class="btn btn--blue">Start</button>
-                </div>
-            </div>
-        </div>
+			<!-- Chronometer -->
+			<div id="chrono" class="place-items d-none">
+				<div>
+					<input type="text" id="chronoInput" class="app--input" disabled>
+					
+					<div id="chronoOutputLap" class="place-items">
+						<input type="text" id="chronoInputLap" class="input-lap d-none">
+						
+						<table id="chronoTableLap" class="table-lap d-none">
+							<thead class="table-head-lap">
+								<th class="box" style="width: 30px;">Lap</th>
+								<th class="box">Lap Time</th>
+								<th class="box">Overall Time</th>
+							</thead>
+							<tbody id="chronoBlockLap" class="table-body-lap"></tbody>
+						</table>				
+					</div>
+				</div>
 
+				<div class="chrono-buttons">
+					<button id="chronoLap" class="btn btn-gray" disabled>Lap</button>
+					<button id="chronoReset" class="btn btn-gray d-none">Reset</button>
+					<button id="chronoStart" class="btn btn-purple">Start</button>
+					<button id="chronoResume" class="btn btn-purple d-none">Resume</button>
+					<button id="chronoStop" class="btn btn-red d-none">Stop</button>
+				</div>
+			</div>
 
-        <div class="app__menu">
-            <button id="btnMenuClock" class="btn btn--default btn--menu">Clock</button>
-            <button id="btnMenuSW" class="btn btn--menu">Stopwatch</button>
-            <button id="btnMenuTimer" class="btn btn--menu">Timer</button>
-        </div>
-    </div>
+			<!-- Timer -->
+			<div id="timer" class="place-items d-none" style="width: 100%;">
+				<div style="display: flex;">
+					<input type="text" id="timerInputHour" style="width:100%;text-align:center;font-size:30px" value="00">
+					<input type="text" id="timerInputMinute" style="width:100%;text-align:center;font-size:30px" value="00">
+					<input type="text" id="timerInputSecond" style="width:100%;text-align:center;font-size:30px" value="00">					
+				</div>
+				
+				<div class="chrono-buttons">
+					<button id="timerBtn" class="btn btn-purple">Start</button>
+				</div>
+			</div>
+		</div>
 
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script type="text/javascript" lang="javascript" src="app.js"></script>
+		<nav>
+			<ul class="menu">
+				<li id="btnTime" class="btn btn-purple btn-menu">Time</li>
+				<li id="btnChrono" class="btn btn-menu">Stopwatch</li>
+				<li id="btnTimer" class="btn btn-menu">Timer</li>
+			</ul>
+		</nav>
+
+		<div id="modal" class="modal place-items d-none">
+			<div id="modalContainer" class="modal-container bg-light place-items">
+				<p id="modalText" class="modal-text">Soy un modal</p>
+				<button id="modalBtn" class="btn btn-purple">Close</button>
+			</div>
+		</div>
+	</main>
+
+	<script type="text/javascript" src="src/js/app.min.js"></script>
 </body>
 </html>

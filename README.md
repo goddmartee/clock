@@ -4,6 +4,8 @@
 
 It is a web applications does displays the time, a timer and a stopwatch
 
+![See the page](https://goddmartee.github.io/clock/)
+
 - You don't need to install anything
 - Clone the repository `clock`
 - Open in the browser
