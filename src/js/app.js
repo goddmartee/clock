@@ -22,6 +22,8 @@ let startChrono = 0;
 let startLap = 0;
 let hour12 = false;
 let countLap = 0;
+let darkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+let lightMode = window.matchMedia("prefers-color-scheme: light").matches
 
 const $ = selector => document.querySelector(selector);
 
@@ -94,8 +96,11 @@ setInterval(() => {
 		if(hours > 12) {
 			hours = hours - 12;
 			suffix = "AM";
+
 		}
-	}
+
+		hours = hours == "00" ? "12" : hours; 
+	};
 
 	hours = hours.displace(2);
 	minutes = minutes.displace(2);
@@ -115,7 +120,6 @@ setInterval(() => {
 
 }, (1000 / 17) + 10);	
 
-// Clock Buttons
 $CLOCK_BTN_HOUR12.on("click", () => {
 	$CLOCK_BTN_HOUR12.addClass("d-none")
 	$CLOCK_BTN_HOUR24.removeClass("d-none");
@@ -130,7 +134,6 @@ $CLOCK_BTN_HOUR24.on("click", () => {
 	hour12 = false;
 });
 
-// Chronometer Buttons
 $CHRONO_BTN_START.on("click", () => {
 	time = true;
 
@@ -204,7 +207,6 @@ $CHRONO_BTN_LAP.on("click", () => {
 	`;
 });
 
-// Menu Buttons
 $MENU_BTN_SHOW_TIME.on("click", () => {
 	$CLOCK.removeClass("d-none");
 	$CHRONO.addClass("d-none");
@@ -235,13 +237,34 @@ $MENU_BTN_TIMER.on("click", () => {
 	$MENU_BTN_TIMER.addClass("btn-purple");
 });
 
-// Button to close the Modal
 $MODAL_BTN.on("click", () => {
 	$MODAL.addClass("d-none");
 });
 
-// Appeariance mode buttons
+if (darkMode) {
+	$MODE_BTN_DARK.addClass("d-none");
+	$MODE_BTN_LIGHT.removeClass("d-none");
+
+	$APP.removeClass("bg-light");
+	$APP.addClass("bg-dark");
+
+	$MODAL_CONTAINER.removeClass("bg-light");
+	$MODAL_CONTAINER.addClass("bg-dark");
+};
+
+if (lightMode) {
+	$MODE_BTN_DARK.addClass("d-none");
+	$MODE_BTN_LIGHT.removeClass("d-none");
+
+	$APP.removeClass("bg-dark");
+	$APP.addClass("bg-light");
+
+	$MODAL_CONTAINER.removeClass("bg-dark");
+	$MODAL_CONTAINER.addClass("bg-light");
+};
+
 $MODE_BTN_DARK.on("click", () => {
+	$APP.removeClass("bg-light");
 	$APP.addClass("bg-dark");
 	
 	$MODAL_CONTAINER.removeClass("bg-light");
@@ -259,6 +282,7 @@ $MODE_BTN_DARK.on("click", () => {
 
 $MODE_BTN_LIGHT.on("click", () => {
 	$APP.removeClass("bg-dark");
+	$APP.addClass("bg-light");
 
 	$MODAL_CONTAINER.removeClass("bg-dark");
 	$MODAL_CONTAINER.addClass("bg-light");
@@ -273,7 +297,6 @@ $MODE_BTN_LIGHT.on("click", () => {
 	$CHRONO_BTN_RESET.addClass("btn-gray");
 });
 
-// Timer button
 $TIMER_BTN.on("click", () => {
 	setTimeout(() => {
 		addModal(`Time's up ${$TIMER_INPUT_HOUR.value} : ${$TIMER_INPUT_MINUTE.value} : ${$TIMER_INPUT_SECOND.value}`);
